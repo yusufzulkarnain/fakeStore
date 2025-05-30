@@ -44,13 +44,13 @@ const CategoryProduct: React.FC<CategoryProductProps> = props => {
           {
             borderWidth: selectedCategory === title ? 1 : 0,
             backgroundColor: selectedCategory === title ? '#fff' : '#f1f1f1',
-            borderColor: selectedCategory === title ? '#0072FF' : '#f1f1f1',
+            borderColor: selectedCategory === title ? '#7F2C6E' : '#f1f1f1',
           },
         ]}>
         <GlobalText
           typeText="italic"
           size={toDp(12)}
-          style={{color: selectedCategory === title ? '#0072FF' : '#000'}}>
+          style={{color: selectedCategory === title ? '#7F2C6E' : '#000'}}>
           {title}
         </GlobalText>
       </TouchableOpacity>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   btnFilter: {
-    backgroundColor: '#0072FF',
+    backgroundColor: '#7F2C6E',
     // backgroundColor: '#D3DDEB',
     width: toDp(26),
     height: toDp(26),

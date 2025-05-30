@@ -8,6 +8,8 @@ import {
   TextInput,
   TouchableOpacity,
   ActivityIndicator,
+  Platform,
+  StatusBar,
 } from 'react-native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {toDp} from '../../helpers/PercentageToDp';
@@ -61,14 +63,14 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   }, [error, user]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <GlobalText typeText="regular" size={toDp(20)} style={styles.title}>
         FakeStore.com
       </GlobalText>
       <Image
-        source={require('../../assets/img/img4.png')}
+        source={require('../../assets/img/introFakeTore.png')}
         style={styles.image}
-        resizeMode="stretch"
+        resizeMode="contain"
       />
       <View style={styles.conatinerLoginForm}>
         <View>
@@ -150,14 +152,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
             Continue with Google
           </GlobalText>
         </TouchableOpacity>
-        {/* <GlobalText
-          typeText="italic"
-          size={toDp(10)}
-          style={styles.textVersion}>
-          v.0.1.0
-        </GlobalText> */}
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -166,13 +162,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : toDp(40), // Hindari notch
   },
   image: {
     width: toDp(250),
     height: toDp(250),
   },
   conatinerLoginForm: {
-    backgroundColor: '#7BB1FFCC',
+    backgroundColor: '#7F2C6E',
     width: Dimensions.get('window').width,
     flex: 1,
     borderTopLeftRadius: toDp(50),
@@ -181,9 +178,9 @@ const styles = StyleSheet.create({
     paddingTop: toDp(28),
   },
   title: {
-    position: 'absolute',
-    top: toDp(10),
-    zIndex: 1,
+    // position: 'absolute',
+    // top: toDp(10),
+    // zIndex: 1,
     color: '#212121',
   },
   textInput: {
@@ -210,7 +207,7 @@ const styles = StyleSheet.create({
     height: toDp(40),
     width: toDp(315),
     borderRadius: toDp(10),
-    backgroundColor: '#0072FF',
+    backgroundColor: '#F7A935',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

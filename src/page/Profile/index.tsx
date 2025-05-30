@@ -248,15 +248,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   contentHeader: {
-    backgroundColor: '#0072FF',
-    height: Dimensions.get('window').height / 2 - toDp(120),
+    backgroundColor: '#7F2C6E',
+    height: Dimensions.get('window').height / 2 - toDp(130),
     width: Dimensions.get('window').width,
     paddingHorizontal: toDp(16),
     paddingTop: toDp(24),
   },
   cardProfile: {
     backgroundColor: '#FFFFFF',
-    elevation: toDp(4),
     borderRadius: toDp(8),
     position: 'absolute',
     bottom: toDp(-30),
@@ -265,6 +264,15 @@ const styles = StyleSheet.create({
     paddingVertical: toDp(12),
     paddingHorizontal: toDp(16),
     width: toDp(322),
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: toDp(3),
   },
   roundeduser: {
     width: toDp(60),
@@ -303,7 +311,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btn: {
-    backgroundColor: '#0072FF',
+    backgroundColor: '#7F2C6E',
     width: toDp(322),
     height: toDp(40),
     borderRadius: toDp(8),

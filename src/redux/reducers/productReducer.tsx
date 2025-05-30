@@ -20,6 +20,7 @@ interface ProductState {
   selectedCategory: string | null;
   activeIndex: number;
   modalFilter: boolean;
+  itemsRelated: any[];
 }
 
 const initialState: ProductState = {
@@ -37,6 +38,7 @@ const initialState: ProductState = {
   selectedCategory: null,
   activeIndex: 0,
   modalFilter: false,
+  itemsRelated: [],
 };
 
 const productSlice = createSlice({
@@ -58,6 +60,11 @@ const productSlice = createSlice({
         ? state.items.filter(item => item.category === action.payload)
         : state.items;
     },
+    setRelatedCategory: (state, action: PayloadAction<string | null>) => {
+      state.itemsRelated = action.payload
+        ? state.items.filter(item => item.category === action.payload)
+        : state.items;
+    },
     resetState: state => {
       state.searchQuery = '';
       state.selectedCategory = null;
@@ -73,6 +80,9 @@ const productSlice = createSlice({
       state.productDetail = null;
       state.errorDetail = null;
       state.loadingDetail = false;
+    },
+    resetStateRelated: state => {
+      state.itemsRelated = [];
     },
   },
   extraReducers: builder => {
@@ -124,5 +134,7 @@ export const {
   setSelectedCategory,
   resetState,
   resetStateDetail,
+  setRelatedCategory,
+  resetStateRelated,
 } = productSlice.actions;
 export default productSlice.reducer;

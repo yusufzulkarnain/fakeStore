@@ -26,7 +26,6 @@ export const getProductDetail = createAsyncThunk(
   async (id: number) => {
     console.log(id);
     const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
-    console.log(JSON.stringify(response.data));
     return response.data;
   },
 );

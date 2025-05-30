@@ -130,10 +130,9 @@ const CartScreen: React.FC<cartScreenProps> = ({navigation}) => {
             size={toDp(16)}
             style={styles.textGrandPrice}>
             $
-            {cartItems.reduce(
-              (total, item) => total + item.price * (item.qty ?? 0),
-              0,
-            )}
+            {cartItems
+              .reduce((total, item) => total + item.price * (item.qty ?? 0), 0)
+              .toFixed(2)}
           </GlobalText>
         </View>
         <View>
@@ -184,7 +183,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderTopWidth: toDp(1),
     borderTopColor: '#D3DDEB',
-    padding: toDp(12),
+    paddingHorizontal: toDp(16),
+    paddingVertical: toDp(16),
     position: 'absolute',
     bottom: 0,
     width: '100%',
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     color: 'green',
   },
   btnCheckout: {
-    backgroundColor: '#0072FF',
+    backgroundColor: '#7F2C6E',
     paddingHorizontal: toDp(10),
     paddingVertical: toDp(8),
     alignItems: 'center',

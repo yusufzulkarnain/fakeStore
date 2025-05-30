@@ -47,8 +47,12 @@ function AnimatedTabIcon({focused, IconComponent}: AnimatedTabIconProps) {
   }, [focused]);
 
   return (
-    <Animated.View style={{transform: [{scale: scaleValue}]}}>
-      <IconComponent size={toDp(20)} color={focused ? '#0072FF' : '#808080'} />
+    <Animated.View
+      style={{
+        transform: [{scale: scaleValue}],
+        // marginBottom: toDp(-4),
+      }}>
+      <IconComponent size={toDp(18)} color={focused ? '#7F2C6E' : '#808080'} />
     </Animated.View>
   );
 }
@@ -80,7 +84,12 @@ function HomeTabs() {
     <Tab.Navigator
       screenOptions={({route}) => ({
         headerShown: false,
-        tabBarStyle: {backgroundColor: 'white'},
+        tabBarStyle: {
+          backgroundColor: '#FFFFFF',
+          // height: toDp(60),
+          // paddingBottom: toDp(4),
+          // marginBottom: toDp(4),
+        },
         tabBarIcon: ({focused}) => {
           const icons: {[key: string]: any} = {
             Home: Home,
@@ -106,15 +115,17 @@ function HomeTabs() {
           }, [focused]);
 
           return (
-            <Animated.Text
-              style={{
-                color: focused ? '#0072FF' : '#808080',
-                fontSize: toDp(12),
-                fontFamily: 'Inter-SemiBold',
-                transform: [{scale: scaleValue}],
-              }}>
-              {route.name}
-            </Animated.Text>
+            <View>
+              <Animated.Text
+                style={{
+                  color: focused ? '#7F2C6E' : '#808080',
+                  fontSize: toDp(10),
+                  fontFamily: 'Inter-SemiBold',
+                  transform: [{scale: scaleValue}],
+                }}>
+                {route.name}
+              </Animated.Text>
+            </View>
           );
         },
       })}>

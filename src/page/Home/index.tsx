@@ -25,7 +25,7 @@ import {
   resetState,
 } from '../../redux/reducers/productReducer';
 import {addToCart} from '../../redux/actions/cartAction';
-import {Heart, ShoppingBasket} from 'lucide-react-native';
+import {Heart, ShoppingBasket, Search} from 'lucide-react-native';
 import CategoryProduct from '../../component/categoryProduct';
 import Toast from 'react-native-toast-message';
 import {LoadingProduct} from '../../component/loadingProduct';
@@ -103,6 +103,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerSearch}>
+        <Search size={toDp(18)} style={styles.iconSearch} />
         <TextInput
           style={styles.searchInput}
           placeholder="Search product..."
@@ -240,7 +241,7 @@ const styles = StyleSheet.create({
     marginBottom: toDp(12),
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#0072FF',
+    backgroundColor: '#7F2C6E',
     width: Dimensions.get('window').width / 2 - toDp(20),
     borderBottomLeftRadius: toDp(8),
     borderBottomRightRadius: toDp(8),
@@ -283,7 +284,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: toDp(8),
     // margin: toDp(10),
-    paddingHorizontal: toDp(10),
+    paddingLeft: toDp(30),
     backgroundColor: '#FFFFFF80',
     marginRight: toDp(10),
     fontFamily: 'Inter-Regular',
@@ -301,7 +302,7 @@ const styles = StyleSheet.create({
     width: toDp(30),
     height: toDp(30),
     borderRadius: toDp(15),
-    backgroundColor: '#0072FF',
+    backgroundColor: '#7F2C6E',
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
@@ -333,11 +334,15 @@ const styles = StyleSheet.create({
     marginTop: toDp(12),
   },
   separatorLine: {
-    backgroundColor: '#D3DDEB',
+    backgroundColor: '#F2E8EE',
     // width: toDp(328),
     width: '100%',
     height: toDp(4),
     alignSelf: 'center',
+  },
+  iconSearch: {
+    position: 'absolute',
+    left: toDp(20),
   },
 });
 
